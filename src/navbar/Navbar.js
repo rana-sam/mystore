@@ -14,6 +14,7 @@ export default function Navbar() {
               <Link to="/" className="navcont text-light text-decoration-none">Main</Link>
               <Link to="/Home" className="navcont text-light text-decoration-none">Home</Link>
               <Link to="/about" className="navcont text-light text-decoration-none">About</Link>
+              <Link to="/Admin" className="navcont text-light text-decoration-none">Admin</Link>
               <Link to="/login" className="navcont text-light text-decoration-none">Log In</Link>
           </div>
       
