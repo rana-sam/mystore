@@ -31,6 +31,15 @@ const docRef = await addDoc(collection(db,"products"),{
   product,
 });
 
+
+
+
+
+
+
+
+
+
 setTitle("")
 setPrice("")
 setImg("")
@@ -94,13 +103,14 @@ setImg("")
                 value={price}
                 onChange={(e)=>setPrice(e.target.value)}
               ></input>
-              <label className="pt-3 ms-4 pb-2">Image URL:</label>
+              <label className="pt-3 ms-4 pb-2">Product Image URL</label>
               <input
                 className="w-75 ms-4"
-                placeholder="https//"
                 type="text"
                 value={img}
                 onChange={(e)=>setImg(e.target.value)}
+
+
 
               ></input>
               <div className="modal-footer">

@@ -10,6 +10,7 @@ import Main from "../main/Main";
 export default function Routing() {
   return (
     <div>
+      
       <Router>
         <Navbar></Navbar>
         <Routes>
