@@ -5,58 +5,30 @@ import { db } from "../../FireBase";
 import { addDoc, collection } from "firebase/firestore";
 
 export default function Admin() {
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [img, setImg] = useState("");
 
-  const [title, setTitle] = useState("")
-  const [price, setPrice] = useState("")
-  const [img, setImg] = useState("")
+  const onSubmit = async () => {
+    if (!title || !price || !img) {
+      alert("All inputs are required!");
+      return;
+    }
 
+    let product = {
+      title: title,
+      price: price,
+      img: img,
+    };
 
+    const docRef = await addDoc(collection(db, "products"), {
+      product,
+    });
 
-  const onSubmit = async()=>{
-    if (!title||!price||!img) {
-      alert("All inputs are required!")
-return;
-    
-
-}
-
-let product ={
-  title:title,
-  price:price,
-  img:img
-
-}
-
-const docRef = await addDoc(collection(db,"products"),{
-  product,
-});
-
-
-
-
-
-
-
-
-
-
-setTitle("")
-setPrice("")
-setImg("")
-
-
-
-
-
-
+    setTitle("");
+    setPrice("");
+    setImg("");
   };
-
-
-
-
-
-
-
 
   return (
     <div>
@@ -88,11 +60,7 @@ setImg("")
                 placeholder="Enter title"
                 type="text"
                 value={title}
-                onChange={(e)=>setTitle(e.target.value)}
-
-
-
-
+                onChange={(e) => setTitle(e.target.value)}
               ></input>
 
               <label className="pt-3 ms-4 pb-2">Product Price:</label>
@@ -101,17 +69,14 @@ setImg("")
                 placeholder="Enter Price"
                 type="text"
                 value={price}
-                onChange={(e)=>setPrice(e.target.value)}
+                onChange={(e) => setPrice(e.target.value)}
               ></input>
               <label className="pt-3 ms-4 pb-2">Product Image URL</label>
               <input
                 className="w-75 ms-4"
                 type="text"
                 value={img}
-                onChange={(e)=>setImg(e.target.value)}
-
-
-
+                onChange={(e) => setImg(e.target.value)}
               ></input>
               <div className="modal-footer">
                 <button
